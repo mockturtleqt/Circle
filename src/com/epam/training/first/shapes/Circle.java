@@ -1,7 +1,7 @@
 package com.epam.training.first.shapes;
 
 public class Circle {
-    private Point center = new Point(0, 0);
+    private Point center;
     private int radius;
 
     private Circle(CircleBuilder cb) {
