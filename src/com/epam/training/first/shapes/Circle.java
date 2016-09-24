@@ -45,7 +45,7 @@ public class Circle {
             this.radius = radius;
         }
 
-        public CircleBuilder сenter(Point c) {
+        public CircleBuilder center(Point c) {
             this.center = c;
             return this;
         }
