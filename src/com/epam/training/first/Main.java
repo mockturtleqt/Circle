@@ -5,7 +5,7 @@ import com.epam.training.first.shapes.Circle;
 
 public class Main {
     public static void main(String[] args) {
-        Circle c1 = new Circle(3);
+        Circle c1 = new Circle.CircleBuilder(3).build();
 
         System.out.println(Action.calculateArea(c1));
         System.out.println(Action.calculatePerimeter(c1));
