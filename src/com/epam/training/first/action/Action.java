@@ -1,6 +1,6 @@
-package action;
+package com.epam.training.first.action;
 
-import shapes.Circle;
+import com.epam.training.first.shapes.Circle;
 
 public class Action {
     public static double calculateArea(Circle circle) {

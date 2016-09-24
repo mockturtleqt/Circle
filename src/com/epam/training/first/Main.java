@@ -1,5 +1,7 @@
-import action.Action;
-import shapes.Circle;
+package com.epam.training.first;
+
+import com.epam.training.first.action.Action;
+import com.epam.training.first.shapes.Circle;
 
 public class Main {
     public static void main(String[] args) {
