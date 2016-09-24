@@ -4,6 +4,8 @@ public class Circle {
     private Point center = new Point(0, 0);
     private int radius;
 
+    public Circle() {}
+
     public Circle(int radius) {
         this.radius = radius;
     }
