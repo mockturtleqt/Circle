@@ -10,5 +10,6 @@ public class Main {
         System.out.println(Action.calculateArea(c1));
         System.out.println(Action.calculatePerimeter(c1));
         System.out.println(c1);
+
     }
 }

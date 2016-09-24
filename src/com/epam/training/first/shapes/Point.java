@@ -1,8 +1,5 @@
 package com.epam.training.first.shapes;
 
-/**
- * Created by Galia on 9/24/2016.
- */
 public class Point {
     private int x;
     private int y;
@@ -30,9 +27,6 @@ public class Point {
 
     @Override
     public String toString() {
-        return "Point {" +
-                "x = " + x +
-                ", y = " + y +
-                '}';
+        return String.format("Point(%d, %d)", x, y);
     }
 }

@@ -34,34 +34,27 @@ public class Circle {
 
     @Override
     public String toString() {
-        return "Circle {" +
-                "center = " + center +
-                ", radius = " + radius +
-                '}';
+        return String.format("Circle {center = %s, radius = %s}", center, radius);
     }
 
     public static class CircleBuilder {
-        private Point center = new Point(0, 0);
+        private Point center;
         private int radius;
 
         public CircleBuilder(int radius) {
             this.radius = radius;
         }
 
-        public Point getCenter() {
-            return center;
-        }
-
-        public int getRadius() {
-            return radius;
-        }
-
-        public CircleBuilder setCenter(Point c) {
+        public CircleBuilder сenter(Point c) {
             this.center = c;
             return this;
         }
 
         public Circle build() {
+            if (this.center == null)
+            {
+                this.center = new Point(0, 0);
+            }
             return new Circle(this);
         }
     }
