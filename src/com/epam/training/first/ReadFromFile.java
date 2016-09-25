@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ReadFromFile {
 
-    public static BufferedReader openFile(String filepath) throws FileNotFoundException {
+    public static BufferedReader openFile(String filepath) {
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(new File(filepath)));
@@ -17,7 +17,7 @@ public class ReadFromFile {
         return reader;
     }
 
-    public static ArrayList<String> readData(BufferedReader reader) throws IOException {
+    public static ArrayList<String> readData(BufferedReader reader) throws IOException{
         ArrayList<String> data = new ArrayList<>();
         String s;
 
@@ -33,7 +33,7 @@ public class ReadFromFile {
         return data;
     }
 
-    public static ArrayList<ArrayList<Integer>> convertToInt(ArrayList<String> data) throws NumberFormatException {
+    public static ArrayList<ArrayList<Integer>> convertToInt(ArrayList<String> data) {
         ArrayList<ArrayList<Integer>> convertedData = new ArrayList<>();
 
         for (String str : data) {
