@@ -33,7 +33,7 @@ public class ReadFromFile {
         return data;
     }
 
-    public static ArrayList<ArrayList<Integer>> convertToInt(ArrayList<String> data) throws NumberFormatException{
+    public static ArrayList<ArrayList<Integer>> convertToInt(ArrayList<String> data) throws NumberFormatException {
         ArrayList<ArrayList<Integer>> convertedData = new ArrayList<>();
 
         for (String str : data) {

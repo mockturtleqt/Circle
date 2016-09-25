@@ -64,9 +64,11 @@ public class Circle {
             return new Circle(this);
         }
 
+        //Create list of Circle objects. Arguments - converted data from text file.
         public static ArrayList<Circle> createCircleList(ArrayList<ArrayList<Integer>> convertedData) {
             ArrayList<Circle> circleList = new ArrayList<>();
             for (ArrayList<Integer> singleCircle : convertedData) {
+                //in data.txt there should be either one number (radius) or three (radius + center)
                 if (singleCircle.size() > 1) {
                     Point currentCenter = new Point(singleCircle.get(1), singleCircle.get(2));
                     try {

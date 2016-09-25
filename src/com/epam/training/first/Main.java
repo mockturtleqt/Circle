@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Circle> list = null;
         try {
-            //convertToInt, ReadData and openFile from com.epam.training.first.ReadFromFile
+            //convertToInt, readData and openFile from com.epam.training.first.ReadFromFile
             list = Circle.CircleBuilder.createCircleList(convertToInt(readData(openFile("./text files/data.txt"))));
         } catch (FileNotFoundException fileNotFound) {
             System.out.println(fileNotFound);
