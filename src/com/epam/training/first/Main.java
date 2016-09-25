@@ -2,10 +2,9 @@ package com.epam.training.first;
 
 import com.epam.training.first.action.Action;
 import com.epam.training.first.shapes.Circle;
-import com.epam.training.first.shapes.Point;
+
 import java.io.*;
 import java.util.ArrayList;
-import com.epam.training.first.ReadFromFile.*;
 
 import static com.epam.training.first.ReadFromFile.*;
 

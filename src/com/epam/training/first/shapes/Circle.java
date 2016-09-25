@@ -54,13 +54,11 @@ public class Circle {
             return this;
         }
 
-        public Circle build() throws NotCircleException{
-            if (this.center == null)
-            {
+        public Circle build() throws NotCircleException {
+            if (this.center == null) {
                 this.center = new Point(0, 0);
             }
-            if (this.radius <= 0)
-            {
+            if (this.radius <= 0) {
                 throw new NotCircleException(String.format("Circles with %d radius don't exist", this.radius));
             }
             return new Circle(this);
@@ -76,8 +74,7 @@ public class Circle {
                     } catch (NotCircleException notCircle) {
                         System.out.println(notCircle);
                     }
-                }
-                else {
+                } else {
                     try {
                         circleList.add(new Circle.CircleBuilder(singleCircle.get(0)).build());
                     } catch (NotCircleException notCircle) {

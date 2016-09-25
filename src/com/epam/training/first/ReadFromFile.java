@@ -1,10 +1,6 @@
 package com.epam.training.first;
 
 import java.io.FileNotFoundException;
-import com.epam.training.first.action.Action;
-import com.epam.training.first.shapes.Circle;
-import com.epam.training.first.shapes.Point;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -21,7 +17,7 @@ public class ReadFromFile {
         return reader;
     }
 
-    public static ArrayList<String> readData(BufferedReader reader) throws IOException{
+    public static ArrayList<String> readData(BufferedReader reader) throws IOException {
         ArrayList<String> data = new ArrayList<>();
         String s;
 
