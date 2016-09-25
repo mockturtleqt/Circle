@@ -1,5 +1,6 @@
 package com.epam.training.first.shapes;
 
+
 public class Point {
     private int x;
     private int y;

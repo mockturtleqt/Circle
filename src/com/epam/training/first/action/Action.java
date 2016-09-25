@@ -4,6 +4,7 @@ import java.lang.Math;
 
 import com.epam.training.first.shapes.Circle;
 
+
 public class Action {
     public static double calculateArea(Circle circle) {
         return Math.PI * circle.getRadius() * circle.getRadius();

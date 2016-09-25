@@ -1,8 +1,5 @@
 package com.epam.training.first.shapes;
 
-import com.epam.training.first.exception.NotCircleException;
-
-import java.util.ArrayList;
 
 public class Circle {
     private Point center;

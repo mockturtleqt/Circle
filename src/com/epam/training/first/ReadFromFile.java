@@ -1,18 +1,20 @@
 package com.epam.training.first;
 
 import java.io.FileNotFoundException;
-
+import org.apache.log4j.*;
 import java.io.*;
 import java.util.ArrayList;
 
+
 public class ReadFromFile {
+    private static Logger logger = Logger.getLogger(ReadFromFile.class);
 
     public static BufferedReader openFile(String filepath) {
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(new File(filepath)));
         } catch (FileNotFoundException fileNotFoundException) {
-            System.out.println(fileNotFoundException + "No acceptable file here " + filepath);
+            logger.error(fileNotFoundException + "No acceptable file here " + filepath);
         }
         return reader;
     }
@@ -26,7 +28,7 @@ public class ReadFromFile {
                 data.add(s);
             }
         } catch (IOException ioexception) {
-            System.out.println(ioexception);
+            logger.error(ioexception);
         } finally {
             reader.close();
         }
@@ -46,7 +48,7 @@ public class ReadFromFile {
                 }
                 convertedData.add(splittedStringAsInt);
             } catch (NumberFormatException formatException) {
-                System.out.println(formatException + " Wrong input! Only accepts ints.");
+                logger.error(formatException + " Wrong input! Only accepts ints.");
             }
         }
         return convertedData;

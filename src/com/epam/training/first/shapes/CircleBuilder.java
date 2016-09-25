@@ -5,8 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import static com.epam.training.first.ReadFromFile.*;
+import org.apache.log4j.*;
+
 
 public class CircleBuilder {
+    private static Logger logger = Logger.getLogger(CircleBuilder.class);
     private Point center;
     private int radius;
 
@@ -47,13 +50,13 @@ public class CircleBuilder {
                 try {
                     circleList.add(new CircleBuilder(singleCircle.get(0)).center(currentCenter).build());
                 } catch (NotCircleException notCircle) {
-                    System.out.println(notCircle);
+                    logger.error(notCircle);
                 }
             } else {
                 try {
                     circleList.add(new CircleBuilder(singleCircle.get(0)).build());
                 } catch (NotCircleException notCircle) {
-                    System.out.println(notCircle);
+                    logger.error(notCircle);
                 }
             }
         }
@@ -65,9 +68,9 @@ public class CircleBuilder {
         try {
             list = CircleBuilder.createCircleList(convertToInt(readData(openFile(filepath))));
         } catch (FileNotFoundException fileNotFound) {
-            System.out.println(fileNotFound);
+            logger.error(fileNotFound);
         } catch (IOException ioexception) {
-            System.out.println(ioexception);
+            logger.error(ioexception);
         }
         return list;
     }
