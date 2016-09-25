@@ -1,5 +1,9 @@
 package com.epam.training.first.shapes;
 
+import com.epam.training.first.exception.NotCircleException;
+
+import java.util.ArrayList;
+
 public class Circle {
     private Point center;
     private int radius;
@@ -50,12 +54,38 @@ public class Circle {
             return this;
         }
 
-        public Circle build() {
+        public Circle build() throws NotCircleException{
             if (this.center == null)
             {
                 this.center = new Point(0, 0);
             }
+            if (this.radius <= 0)
+            {
+                throw new NotCircleException(String.format("Circles with %d radius don't exist", this.radius));
+            }
             return new Circle(this);
+        }
+
+        public static ArrayList<Circle> createCircleList(ArrayList<ArrayList<Integer>> convertedData) {
+            ArrayList<Circle> circleList = new ArrayList<>();
+            for (ArrayList<Integer> singleCircle : convertedData) {
+                if (singleCircle.size() > 1) {
+                    Point currentCenter = new Point(singleCircle.get(1), singleCircle.get(2));
+                    try {
+                        circleList.add(new Circle.CircleBuilder(singleCircle.get(0)).center(currentCenter).build());
+                    } catch (NotCircleException notCircle) {
+                        System.out.println(notCircle);
+                    }
+                }
+                else {
+                    try {
+                        circleList.add(new Circle.CircleBuilder(singleCircle.get(0)).build());
+                    } catch (NotCircleException notCircle) {
+                        System.out.println(notCircle);
+                    }
+                }
+            }
+            return circleList;
         }
     }
 
