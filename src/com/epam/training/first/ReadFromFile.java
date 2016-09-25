@@ -42,13 +42,14 @@ public class ReadFromFile {
 
             String[] splittedString = str.split(" ");
             ArrayList<Integer> splittedStringAsInt = new ArrayList<>();
+            int i = 0;
             try {
-                for (int i = 0; i < splittedString.length; i++) {
+                for (i = 0; i < splittedString.length; i++) {
                     splittedStringAsInt.add(Integer.parseInt(splittedString[i]));
                 }
                 convertedData.add(splittedStringAsInt);
             } catch (NumberFormatException formatException) {
-                logger.error(formatException + " Wrong input! Only accepts ints.");
+                logger.error(formatException + String.format(" line %d: Only accepts ints.", i + 1));
             }
         }
         return convertedData;
