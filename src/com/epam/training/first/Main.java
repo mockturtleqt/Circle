@@ -12,14 +12,6 @@ public class Main {
         BasicConfigurator.configure();
         ArrayList<Circle> list = CircleBuilder.fileCircleBuilder("./text files/data.txt");
 
-//        try {
-//            //convertToInt, readData and openFile from com.epam.training.first.ReadFromFile
-//            list = CircleBuilder.createCircleList(convertToInt(readData(openFile("./text files/data.txt"))));
-//        } catch (FileNotFoundException fileNotFound) {
-//            System.out.println(fileNotFound);
-//        } catch (IOException ioexception) {
-//            System.out.println(ioexception);
-//        }
         if (list != null) {
             for (Circle c : list) {
                 System.out.println(c);
