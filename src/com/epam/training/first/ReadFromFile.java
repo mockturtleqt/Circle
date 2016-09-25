@@ -12,7 +12,7 @@ public class ReadFromFile {
         try {
             reader = new BufferedReader(new FileReader(new File(filepath)));
         } catch (FileNotFoundException fileNotFoundException) {
-            System.out.println(fileNotFoundException);
+            System.out.println(fileNotFoundException + "No acceptable file here " + filepath);
         }
         return reader;
     }
@@ -33,18 +33,21 @@ public class ReadFromFile {
         return data;
     }
 
-    public static ArrayList<ArrayList<Integer>> convertToInt(ArrayList<String> data) {
+    public static ArrayList<ArrayList<Integer>> convertToInt(ArrayList<String> data) throws NumberFormatException{
         ArrayList<ArrayList<Integer>> convertedData = new ArrayList<>();
 
         for (String str : data) {
 
             String[] splittedString = str.split(" ");
             ArrayList<Integer> splittedStringAsInt = new ArrayList<>();
-
-            for (int i = 0; i < splittedString.length; i++) {
-                splittedStringAsInt.add(Integer.parseInt(splittedString[i]));
+            try {
+                for (int i = 0; i < splittedString.length; i++) {
+                    splittedStringAsInt.add(Integer.parseInt(splittedString[i]));
+                }
+                convertedData.add(splittedStringAsInt);
+            } catch (NumberFormatException formatException) {
+                System.out.println(formatException + " Wrong input! Only accepts ints.");
             }
-            convertedData.add(splittedStringAsInt);
         }
         return convertedData;
     }

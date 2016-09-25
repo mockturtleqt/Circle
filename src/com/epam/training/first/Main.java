@@ -19,11 +19,12 @@ public class Main {
         } catch (IOException ioexception) {
             System.out.println(ioexception);
         }
-
-        for (Circle c : list) {
-            System.out.println(c);
-            System.out.println(Action.calculateArea(c));
-            System.out.println(Action.calculatePerimeter(c));
+        if (list != null) {
+            for (Circle c : list) {
+                System.out.println(c);
+                System.out.println(Action.calculateArea(c));
+                System.out.println(Action.calculatePerimeter(c));
+            }
         }
     }
 }

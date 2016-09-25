@@ -59,7 +59,7 @@ public class Circle {
                 this.center = new Point(0, 0);
             }
             if (this.radius <= 0) {
-                throw new NotCircleException(String.format("Circles with %d radius don't exist", this.radius));
+                throw new NotCircleException(String.format("Circles with %d radius don't exist.", this.radius));
             }
             return new Circle(this);
         }
