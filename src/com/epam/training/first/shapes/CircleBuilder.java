@@ -30,7 +30,7 @@ public class CircleBuilder {
         return this;
     }
 
-    public Circle build() throws NotCircleException {
+    public Circle build() throws NotCircleException{
         if (this.center == null) {
             this.center = new Point(0, 0);
         }
