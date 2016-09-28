@@ -40,16 +40,15 @@ public class CircleBuilder {
         return new Circle(this);
     }
 
-    public static ArrayList<Circle> createCircleList(int[] data) {
-        Point center;
-        ArrayList<Circle> circleList = new ArrayList<>();
-        center = (data.length == 3) ? new Point(data[1], data[2]) : new Point(0, 0);
+    public static Circle createCircle(int[] data) {
+        Circle c = null;
+        Point center = (data.length == 3) ? new Point(data[1], data[2]) : new Point(0, 0);
         try {
-            circleList.add(new CircleBuilder(data[0]).center(center).build());
+            c = new CircleBuilder(data[0]).center(center).build();
         } catch (NotCircleException e) {
             logger.error(e);
         }
-        return circleList;
+        return c;
     }
 
     //Create list of Circle objects. Arguments - converted data from text file.
