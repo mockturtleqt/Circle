@@ -41,18 +41,9 @@ public class CircleBuilder {
     }
 
     public static ArrayList<Circle> createCircleList(int[] data) {
-        Point center = null;
+        Point center;
         ArrayList<Circle> circleList = new ArrayList<>();
-        if (data.length > 1) {
-            try {
-                center = new Point(data[1], data[2]);
-            } catch(IndexOutOfBoundsException e) {
-                logger.error(e);
-            }
-        }
-        else {
-            center = new Point(0, 0);
-        }
+        center = (data.length == 3) ? new Point(data[1], data[2]) : new Point(0, 0);
         try {
             circleList.add(new CircleBuilder(data[0]).center(center).build());
         } catch (NotCircleException e) {

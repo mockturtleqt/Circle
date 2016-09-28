@@ -22,13 +22,12 @@ public class Main {
         BasicConfigurator.configure();
         //ArrayList<Circle> list = CircleBuilder.fileCircleBuilder("./text files/data.txt");
 
-        ArrayList<Circle> list = null;
+        ArrayList<Circle> list;
         try (Stream<String> stream = Files.lines(Paths.get("./text files/data.txt"))) {
             stream
                     .forEach(s -> {
                         try {
-                            Arrays.stream(s.split(" ")).mapToInt(Integer::parseInt).toArray();
-                            list = CircleBuilder.createCircleList(s);
+                            list = CircleBuilder.createCircleList(Arrays.stream(s.split(" ")).mapToInt(Integer::parseInt).toArray());
                             System.out.println(s);
                         } catch(NumberFormatException e) {
                             System.out.println(e);
