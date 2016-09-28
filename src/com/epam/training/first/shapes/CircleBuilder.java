@@ -40,38 +40,59 @@ public class CircleBuilder {
         return new Circle(this);
     }
 
-    //Create list of Circle objects. Arguments - converted data from text file.
-    public static ArrayList<Circle> createCircleList(ArrayList<ArrayList<Integer>> convertedData) {
+    public static ArrayList<Circle> createCircleList(int[] data) {
+        Point center = null;
         ArrayList<Circle> circleList = new ArrayList<>();
-        for (ArrayList<Integer> singleCircle : convertedData) {
-            //in data.txt there should be either one number (radius) or three (radius + center)
-            if (singleCircle.size() > 1) {
-                Point currentCenter = new Point(singleCircle.get(1), singleCircle.get(2));
-                try {
-                    circleList.add(new CircleBuilder(singleCircle.get(0)).center(currentCenter).build());
-                } catch (NotCircleException notCircle) {
-                    logger.error(notCircle);
-                }
-            } else {
-                try {
-                    circleList.add(new CircleBuilder(singleCircle.get(0)).build());
-                } catch (NotCircleException notCircle) {
-                    logger.error(notCircle);
-                }
+        if (data.length > 1) {
+            try {
+                center = new Point(data[1], data[2]);
+            } catch(IndexOutOfBoundsException e) {
+                logger.error(e);
             }
+        }
+        else {
+            center = new Point(0, 0);
+        }
+        try {
+            circleList.add(new CircleBuilder(data[0]).center(center).build());
+        } catch (NotCircleException e) {
+            logger.error(e);
         }
         return circleList;
     }
 
-    public static ArrayList<Circle> fileCircleBuilder(String filepath) {
-        ArrayList<Circle> list = null;
-        try {
-            list = CircleBuilder.createCircleList(convertToInt(readData(openFile(filepath))));
-        } catch (FileNotFoundException fileNotFound) {
-            logger.error(fileNotFound);
-        } catch (IOException ioexception) {
-            logger.error(ioexception);
-        }
-        return list;
-    }
+    //Create list of Circle objects. Arguments - converted data from text file.
+//    public static ArrayList<Circle> createCircleList(ArrayList<ArrayList<Integer>> convertedData) {
+//        ArrayList<Circle> circleList = new ArrayList<>();
+//        for (ArrayList<Integer> singleCircle : convertedData) {
+//            //in data.txt there should be either one number (radius) or three (radius + center)
+//            if (singleCircle.size() > 1) {
+//                Point currentCenter = new Point(singleCircle.get(1), singleCircle.get(2));
+//                try {
+//                    circleList.add(new CircleBuilder(singleCircle.get(0)).center(currentCenter).build());
+//                } catch (NotCircleException notCircle) {
+//                    logger.error(notCircle);
+//                }
+//            } else {
+//                try {
+//                    circleList.add(new CircleBuilder(singleCircle.get(0)).build());
+//                } catch (NotCircleException notCircle) {
+//                    logger.error(notCircle);
+//                }
+//            }
+//        }
+//        return circleList;
+//    }
+//
+//    public static ArrayList<Circle> fileCircleBuilder(String filepath) {
+//        ArrayList<Circle> list = null;
+//        try {
+//            list = CircleBuilder.createCircleList(convertToInt(readData(openFile(filepath))));
+//        } catch (FileNotFoundException fileNotFound) {
+//            logger.error(fileNotFound);
+//        } catch (IOException ioexception) {
+//            logger.error(ioexception);
+//        }
+//        return list;
+//    }
 }
