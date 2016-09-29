@@ -1,7 +1,5 @@
 package com.epam.training.first.action;
 
-import java.lang.Math;
-
 import com.epam.training.first.shapes.Circle;
 
 
@@ -12,5 +10,13 @@ public class Action {
 
     public static double calculatePerimeter(Circle circle) {
         return 2 * Math.PI * circle.getRadius();
+    }
+
+    public static boolean doesIntersect(Circle circle, int distance) {
+        int absXcenter = Math.abs(circle.getCenter().getX());
+        int absYcenter = Math.abs(circle.getCenter().getY());
+        return (absXcenter != absYcenter) &&
+                (circle.getRadius() - absXcenter == distance ||
+                        circle.getRadius() - absYcenter == distance);
     }
 }

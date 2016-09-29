@@ -1,58 +1,31 @@
 package com.epam.training.first;
 
-import java.io.FileNotFoundException;
-import org.apache.log4j.*;
-import java.io.*;
-import java.util.ArrayList;
+import com.epam.training.first.shapes.CircleBuilder;
+import org.apache.log4j.Logger;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 
 public class ReadFromFile {
     private static Logger logger = Logger.getLogger(ReadFromFile.class);
 
-    public static BufferedReader openFile(String filepath) {
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(new File(filepath)));
-        } catch (FileNotFoundException fileNotFoundException) {
-            logger.error(fileNotFoundException + "No acceptable file here " + filepath);
+    public static void readFromFile(String filename) {
+        try (Stream<String> stream = Files.lines(Paths.get(filename))) {
+            stream.forEach(s -> {
+                        try {
+                            System.out.println(CircleBuilder.createCircle(Arrays.stream(s.split(" "))
+                                    .mapToInt(Integer::parseInt).toArray()));
+
+                        } catch(NumberFormatException e) {
+                            logger.error(e);
+                        }
+                    });
+        } catch (IOException e) {
+            logger.error(e);
         }
-        return reader;
-    }
-
-    public static ArrayList<String> readData(BufferedReader reader) throws IOException{
-        ArrayList<String> data = new ArrayList<>();
-        String s;
-
-        try {
-            while ((s = reader.readLine()) != null) {
-                data.add(s);
-            }
-        } catch (IOException ioexception) {
-            logger.error(ioexception);
-        } finally {
-            reader.close();
-        }
-        return data;
-    }
-
-    public static ArrayList<ArrayList<Integer>> convertToInt(ArrayList<String> data) {
-        ArrayList<ArrayList<Integer>> convertedData = new ArrayList<>();
-
-        for (String str : data) {
-
-            String[] splittedString = str.split(" ");
-            ArrayList<Integer> splittedStringAsInt = new ArrayList<>();
-            int i = 0;
-            try {
-                for (i = 0; i < splittedString.length; i++) {
-                    splittedStringAsInt.add(Integer.parseInt(splittedString[i]));
-                }
-                convertedData.add(splittedStringAsInt);
-            } catch (NumberFormatException formatException) {
-                logger.error(formatException + String.format(" line %d: Only accepts ints.", i + 1));
-            }
-        }
-        return convertedData;
     }
 
 }
