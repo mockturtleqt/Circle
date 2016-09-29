@@ -7,10 +7,14 @@ import com.epam.training.first.entity.Point;
 import com.epam.training.first.exception.NotCircleException;
 import org.apache.log4j.BasicConfigurator;
 
+import java.util.stream.Stream;
+
 
 public class Main {
     public static void main(String[] args) {
         BasicConfigurator.configure();
-        ReadFromFile.readFromFile("./data/data.txt");
+
+        Stream.of(ReadFromFile.readFromFile("./data/data.txt")).forEach(System.out::println);
+
     }
 }

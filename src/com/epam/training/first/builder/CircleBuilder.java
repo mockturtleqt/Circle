@@ -14,7 +14,9 @@ public class CircleBuilder {
     }
 
     public CircleBuilder(int[] data) {
-        this.radius = data[0];
+        if (data.length >= 1) {
+            this.radius = data[0];
+        }
         if (data.length == 3) {
             this.center = new Point(data[1], data[2]);
         }
