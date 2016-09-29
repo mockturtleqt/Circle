@@ -1,6 +1,6 @@
 import com.epam.training.first.exception.NotCircleException;
 import com.epam.training.first.entity.Circle;
-import com.epam.training.first.entity.CircleBuilder;
+import com.epam.training.first.builder.CircleBuilder;
 import org.junit.Test;
 
 

@@ -1,5 +1,7 @@
-package com.epam.training.first.entity;
+package com.epam.training.first.builder;
 
+import com.epam.training.first.entity.Circle;
+import com.epam.training.first.entity.Point;
 import com.epam.training.first.exception.NotCircleException;
 import org.apache.log4j.Logger;
 

@@ -1,11 +1,13 @@
 package com.epam.training.first.entity;
 
 
+import com.epam.training.first.builder.CircleBuilder;
+
 public class Circle {
     private Point center;
     private int radius;
 
-    Circle(CircleBuilder cb) {
+    public Circle(CircleBuilder cb) {
         this.radius = cb.getRadius();
         this.center = cb.getCenter();
     }
