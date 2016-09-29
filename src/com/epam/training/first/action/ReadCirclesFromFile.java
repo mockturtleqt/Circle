@@ -10,14 +10,14 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
+public class ReadCirclesFromFile {
+    private static Logger logger = Logger.getLogger(ReadCirclesFromFile.class);
 
-public class ReadFromFile {
-    private static Logger logger = Logger.getLogger(ReadFromFile.class);
-
-    public static ArrayList<Circle>  readFromFile(String filename) {
-        ArrayList<Circle> circleList = null;
+    public static List<Circle> readCirclesFromFile(String filename) {
+        final List<Circle> circleList = new ArrayList<>() ;
         try (Stream<String> stream = Files.lines(Paths.get(filename))) {
             stream.forEach(s -> {
                 try {
@@ -32,5 +32,4 @@ public class ReadFromFile {
         }
         return circleList;
     }
-
 }
