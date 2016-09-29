@@ -3,16 +3,21 @@ package com.epam.training.first.builder;
 import com.epam.training.first.entity.Circle;
 import com.epam.training.first.entity.Point;
 import com.epam.training.first.exception.NotCircleException;
-import org.apache.log4j.Logger;
 
 
 public class CircleBuilder {
-    private static Logger logger = Logger.getLogger(CircleBuilder.class);
     private Point center;
     private int radius;
 
     public CircleBuilder(int radius) {
         this.radius = radius;
+    }
+
+    public CircleBuilder(int[] data) {
+        this.radius = data[0];
+        if (data.length == 3) {
+            this.center = new Point(data[1], data[2]);
+        }
     }
 
     public Point getCenter() {
@@ -36,16 +41,5 @@ public class CircleBuilder {
             throw new NotCircleException("There are no circles with " + this.radius + " radius");
         }
         return new Circle(this);
-    }
-
-    public static Circle createCircle(int[] data) {
-        Circle c = null;
-        Point center = (data.length == 3) ? new Point(data[1], data[2]) : new Point(0, 0);
-        try {
-            c = new CircleBuilder(data[0]).center(center).build();
-        } catch (NotCircleException e) {
-            logger.error(e);
-        }
-        return c;
     }
 }
