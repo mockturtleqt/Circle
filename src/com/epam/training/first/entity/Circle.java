@@ -27,12 +27,16 @@ public class Circle {
 
         Circle circle = (Circle) o;
 
-        return radius == circle.radius;
+        if (radius != circle.radius) return false;
+        return center.equals(circle.center);
+
     }
 
     @Override
     public int hashCode() {
-        return radius;
+        int result = center.hashCode();
+        result = 31 * result + radius;
+        return result;
     }
 
     @Override
