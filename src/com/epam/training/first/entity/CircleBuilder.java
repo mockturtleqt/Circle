@@ -1,4 +1,4 @@
-package com.epam.training.first.shapes;
+package com.epam.training.first.entity;
 
 import com.epam.training.first.exception.NotCircleException;
 import org.apache.log4j.Logger;

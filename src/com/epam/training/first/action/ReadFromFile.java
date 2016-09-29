@@ -1,6 +1,6 @@
-package com.epam.training.first;
+package com.epam.training.first.action;
 
-import com.epam.training.first.shapes.CircleBuilder;
+import com.epam.training.first.entity.CircleBuilder;
 import org.apache.log4j.Logger;
 import java.io.IOException;
 import java.nio.file.Files;

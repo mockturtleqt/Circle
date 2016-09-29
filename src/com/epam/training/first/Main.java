@@ -1,5 +1,6 @@
 package com.epam.training.first;
 
+import com.epam.training.first.action.ReadFromFile;
 import org.apache.log4j.BasicConfigurator;
 
 

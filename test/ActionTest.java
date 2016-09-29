@@ -1,8 +1,8 @@
 import com.epam.training.first.action.Action;
 import com.epam.training.first.exception.NotCircleException;
-import com.epam.training.first.shapes.Circle;
-import com.epam.training.first.shapes.CircleBuilder;
-import com.epam.training.first.shapes.Point;
+import com.epam.training.first.entity.Circle;
+import com.epam.training.first.entity.CircleBuilder;
+import com.epam.training.first.entity.Point;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

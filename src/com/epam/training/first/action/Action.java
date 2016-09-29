@@ -1,6 +1,6 @@
 package com.epam.training.first.action;
 
-import com.epam.training.first.shapes.Circle;
+import com.epam.training.first.entity.Circle;
 
 
 public class Action {

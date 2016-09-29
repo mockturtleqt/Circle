@@ -1,4 +1,4 @@
-package com.epam.training.first.shapes;
+package com.epam.training.first.entity;
 
 
 public class Circle {
