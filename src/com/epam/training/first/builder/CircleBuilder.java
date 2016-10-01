@@ -42,6 +42,6 @@ public class CircleBuilder {
         if (this.radius <= 0) {
             throw new NotCircleException("There are no circles with " + this.radius + " radius");
         }
-        return new Circle(this);
+        return new Circle(radius, center);
     }
 }

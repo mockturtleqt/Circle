@@ -26,11 +26,11 @@ public class ReadCirclesFromFile {
                     circleList.add(new CircleBuilder(Arrays.stream(s.split(" "))
                             .mapToInt(Integer::parseInt).toArray()).build());
                 } catch (NumberFormatException | NotCircleException e) {
-                    logger.error(e);
+                    logger.error(e, e);
                 }
             });
         } catch (IOException e) {
-            logger.error(e);
+            logger.error(e, e);
         }
         return circleList;
     }

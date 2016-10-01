@@ -17,7 +17,8 @@ public class ReadFromFileTest {
         List<Circle> circleFromFile = ReadCirclesFromFile.readCirclesFromFile("./data/correctData");
         List<Circle> circle = new ArrayList();
         circle.add(new CircleBuilder(1).center(new Point(2, 3)).build());
-        assertEquals(circle.get(0), circleFromFile.get(0));
+        assertEquals(new CircleBuilder(1).center(new Point(2, 3)).build(), circleFromFile.get(0));
+        assertEquals(circle.size(), circleFromFile.size());
     }
 
     @Test
