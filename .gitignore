@@ -4,6 +4,7 @@
 
 *.pydevproject
 .project
+*.iml
 .metadata
 bin/
 tmp/
