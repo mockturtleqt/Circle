@@ -1,7 +1,7 @@
 package com.epam.training.first.entity;
 
-
 import com.epam.training.first.builder.CircleBuilder;
+
 
 public class Circle {
     private Point center;
